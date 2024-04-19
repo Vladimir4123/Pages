@@ -2,8 +2,7 @@ on: [push]
 jobs:
   deploy:
     permissions:
-      pages: write  	# to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      contents: write
 
     runs-on: ubuntu-latest
 
@@ -20,5 +19,8 @@ jobs:
         run: hugo
 
       - name: Deploy
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          - folder: pages
+
         
